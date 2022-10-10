@@ -11,7 +11,7 @@ public class ArrayTest {
 
         // Array auto int entry
         int[] tenNumsArray = new int[10];
-        int i;
+        int i, a, b, t;
 
         for (i = 0; i < tenNumsArray.length; i++)
             tenNumsArray[i] = i;
@@ -28,15 +28,31 @@ public class ArrayTest {
             System.out.println(nums[j]);
         }
 
-        min = max = nums[0]; // Assignment of value from the generated array
+        // Assignment of value from the generated array
+        min = max = nums[0];
 
         System.out.println(min + " - " + max);
 
-        for (int k = 1; k < 10; k++) { //min and max value search
+        for (int k = 1; k < 10; k++) {
             if (nums[k] < min) min = nums[k];
             if (nums[k] > max) max = nums[k];
         }
-        System.out.println("minimun number of the array is: " + min + "\nmaximun number of the array is: " + max);
+        System.out.println("minimum number of the array is: " + min + "\nmaximum number of the array is: " + max);
+
+        for (a = 1; a < nums.length; a++)
+            for (b = nums.length - 1; b >= a; b--) {
+                if (nums[b - 1] > nums[b]) { // if out of order
+                    // exchange elements
+                    t = nums[b - 1];
+                    nums[b - 1] = nums[b];
+                    nums[b] = t;
+                }
+            }
+        // display sorted array
+        System.out.print("Sorted array is:");
+        for (int l = 0; l < nums.length; l++)
+            System.out.print(" " + nums[l]);
+        System.out.println();
     }
 
 
